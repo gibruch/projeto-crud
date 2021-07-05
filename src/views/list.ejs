@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head.ejs') %> 
+<body>
+    
+    <h1><%= title %></h1>
+    <%- include('partials/navbar.ejs') %> 
+
+    <!--pega o conteúdo recebido da function listUsers -->
+    <ul>
+        <% users.forEach((user) => { %> 
+            <li>
+                <%= user.name %> - <%= user.email %> - Idade: <%= user.age %> - 
+                <a href="/edit?id=<%= user._id %> ">[editar]</a> - <!--[?] para passar um parametro - recebido do EJS-->
+                <a href="/remove/<%= user._id %> ">[remover]</a> <!--[a href] recebe a rota-->
+            </li>
+        <% }) %> 
+    </ul>
+    <%- include('partials/foot.ejs') %> 
+</body>
+</html>
